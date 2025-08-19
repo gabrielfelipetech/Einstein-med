@@ -1,13 +1,11 @@
 <template>
-  <div/>
+  <div>index</div>
 </template>
 
 <script lang="ts" setup>
 definePageMeta({
-  redirect: '/anamnese'
-})
+  redirect: '/anamnese',
+});
 </script>
 
-<style>
-
-</style>
+<style></style>

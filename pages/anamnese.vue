@@ -13,35 +13,29 @@
           <VCard>
             <form class="flex flex-col gap-8">
               <div class="flex gap-4 w-full">
-                <div
-v-for="f in inputFields"
-                     :key="f.key"
-                     class="w-full">
+                <div v-for="f in inputFields" :key="f.key" class="w-full">
                   <VInput
-v-model="responses[f.key]"
-                          :label="f.label"
-                          :placeholder="f.placeholder"
-                          size="md"
-                          color="primary-em" />
+                    v-model="responses[f.key]"
+                    :label="f.label"
+                    :placeholder="f.placeholder"
+                    size="md"
+                    color="primary-em"
+                  />
                 </div>
-
               </div>
               <div class="grid grid-cols-4 gap-4 w-full">
                 <VQuestionGroup
-v-for="q in questions"
-                                :key="q.key"
-                                v-model="responses[q.key]"
-                                :label="q.label"
-                                :type="q.type"
-                                :options="q.options"
-                                :label-position="q.labelPosition" />
-
+                  v-for="question in questions"
+                  :key="question.key"
+                  v-model="responses[question.key]"
+                  :label="question.label"
+                  :type="question.type"
+                  :options="question.options"
+                  :label-position="question.labelPosition"
+                />
               </div>
               <div class="w-24">
-                <VButton
-color="primary-em"
-                         :full-width="true">Analisar</VButton>
-
+                <VButton color="primary-em" :full-width="true">Analisar</VButton>
               </div>
             </form>
           </VCard>
@@ -49,16 +43,12 @@ color="primary-em"
       </main>
     </div>
 
-    <footer class="anamnese-page__footer">
-      <Footer />
-    </footer>
+    <footer class="anamnese-page__footer"></footer>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-
-
+import { reactive } from 'vue';
 
 const responses = reactive({
   reason: '' as string,
@@ -70,13 +60,13 @@ const responses = reactive({
   medications: [] as string[],
   smoker: false as boolean,
   alcohol: false as boolean,
-  chronicDiseases: [] as string[]
-})
+  chronicDiseases: [] as string[],
+});
 
 const inputFields = [
   { key: 'reason', label: 'Qual é o motivo da consulta?', placeholder: 'Ex: Dor abdominal' },
-  { key: 'startSymptoms', label: 'Quando os sintomas começaram?', placeholder: '3 dias' }
-]
+  { key: 'startSymptoms', label: 'Quando os sintomas começaram?', placeholder: '3 dias' },
+];
 
 const questions = [
   {
@@ -85,8 +75,8 @@ const questions = [
     type: 'radio',
     options: [
       { label: 'Sim', value: 'sim' },
-      { label: 'Não', value: 'nao' }
-    ]
+      { label: 'Não', value: 'nao' },
+    ],
   },
   {
     key: 'hasAllergy',
@@ -96,8 +86,8 @@ const questions = [
 
     options: [
       { label: 'Sim', value: true },
-      { label: 'Não', value: false }
-    ]
+      { label: 'Não', value: false },
+    ],
   },
   {
     key: 'symptoms',
@@ -108,8 +98,8 @@ const questions = [
       { label: 'Febre', value: 'febre' },
       { label: 'Tosse', value: 'tosse' },
       { label: 'Falta de ar', value: 'falta_ar' },
-      { label: 'Dor de cabeça', value: 'cefaleia' }
-    ]
+      { label: 'Dor de cabeça', value: 'cefaleia' },
+    ],
   },
   {
     key: 'insomnia',
@@ -119,8 +109,8 @@ const questions = [
 
     options: [
       { label: 'Sim', value: true },
-      { label: 'Não', value: false }
-    ]
+      { label: 'Não', value: false },
+    ],
   },
   {
     key: 'medications',
@@ -131,8 +121,8 @@ const questions = [
       { label: 'Analgésico', value: 'analgesico' },
       { label: 'Antibiótico', value: 'antibiotico' },
       { label: 'Anti-inflamatório', value: 'antiinflamatorio' },
-      { label: 'Outro', value: 'outro' }
-    ]
+      { label: 'Outro', value: 'outro' },
+    ],
   },
   {
     key: 'smoker',
@@ -142,8 +132,8 @@ const questions = [
 
     options: [
       { label: 'Sim', value: true },
-      { label: 'Não', value: false }
-    ]
+      { label: 'Não', value: false },
+    ],
   },
   {
     key: 'alcohol',
@@ -153,8 +143,8 @@ const questions = [
 
     options: [
       { label: 'Sim', value: true },
-      { label: 'Não', value: false }
-    ]
+      { label: 'Não', value: false },
+    ],
   },
   {
     key: 'chronicDiseases',
@@ -165,10 +155,10 @@ const questions = [
       { label: 'Diabetes', value: 'diabetes' },
       { label: 'Hipertensão', value: 'hipertensao' },
       { label: 'Doenças cardíacas', value: 'cardiaca' },
-      { label: 'Nenhuma', value: 'nenhuma' }
-    ]
-  }
-]
+      { label: 'Nenhuma', value: 'nenhuma' },
+    ],
+  },
+];
 </script>
 
 <style lang="scss">
