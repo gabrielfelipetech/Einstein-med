@@ -1,6 +1,5 @@
 // nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config';
-import eslintPlugin from 'vite-plugin-eslint';
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-29',
@@ -15,13 +14,7 @@ export default defineNuxtConfig({
   plugins: ['~/plugins/verita-components'],
   modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/scripts'],
   vite: {
-    plugins: [
-      eslintPlugin({
-        include: ['**/*.{js,ts,vue}'],
-        fix: true,
-        cache: false,
-      }),
-    ],
+    plugins: [],
   },
 
   app: {

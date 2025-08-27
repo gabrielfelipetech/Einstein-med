@@ -1,6 +1,10 @@
-// @ts-check
-import withNuxt from './.nuxt/eslint.config.mjs'
+import js from '@eslint/js';
+import vue from 'eslint-plugin-vue';
+import tseslint from 'typescript-eslint';
 
-export default withNuxt(
-  // Your custom configs here
-)
+export default [
+  { ignores: ['.nuxt/**', '.output/**', 'dist/**', 'node_modules/**'] },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  vue.configs['flat/recommended'],
+];
