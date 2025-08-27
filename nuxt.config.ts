@@ -13,14 +13,7 @@ export default defineNuxtConfig({
     },
   ],
   plugins: ['~/plugins/verita-components'],
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/fonts',
-    '@nuxt/icon',
-    '@nuxt/image',
-    '@nuxt/scripts',
-    '@nuxt/test-utils',
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/icon', '@nuxt/image', '@nuxt/scripts'],
   vite: {
     plugins: [
       eslintPlugin({
